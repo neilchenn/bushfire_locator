@@ -2,7 +2,10 @@
 import { useState, useEffect } from 'react'
 import Map from './components/Map'
 import Loader from './components/Loader'
-import Header from './components/Header'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import NavbarComp from './components/NavbarComp'
+
+
 
 function App() {
   const [eventData, setEventData] = useState([])
@@ -23,7 +26,7 @@ function App() {
 
   return (
     <div>
-      <Header />
+      <NavbarComp />
       { !loading ? <Map eventData={eventData} /> : <Loader /> }
     </div>
   );

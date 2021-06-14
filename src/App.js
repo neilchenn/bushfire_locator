@@ -11,10 +11,10 @@ function App() {
   useEffect(() => {
     const fetchEvents = async () => {
       setLoading(true)
-      const res = await fetch('https://eonet.sci.gsfc.nasa.gov/api/v2.1/events')
-      const { events } = await res.json()
+      const res = await fetch('http://australia-fire-api-dashboard.herokuapp.com/api/v1.0/fires_modis')
+      const { result } = await res.json()
 
-      setEventData(events)
+      setEventData(result)
       setLoading(false)
     }
 

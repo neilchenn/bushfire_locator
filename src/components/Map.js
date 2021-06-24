@@ -1,13 +1,13 @@
-import { useState } from 'react'
-import GoogleMapReact from 'google-map-react'
-import LocationMarker from './LocationMarker'
-import LocationInfoBox from './LocationInfoBox'
+import React, { useState } from 'react';
+import GoogleMapReact from 'google-map-react';
+import LocationMarker from './LocationMarker';
+import LocationInfoBox from './LocationInfoBox';
 
 const Map = ({ eventData, center, zoom }) => {
     const [locationInfo, setLocationInfo] = useState(null)
 
-    const markers = eventData.map((ev, index) => {
-        return <LocationMarker key={index} lat={ev.latitude} lng={ev.longitude} onClick={() => setLocationInfo({ id: ev.id, brightness: ev.brightness })} />
+    const markers = eventData.map((ev) => {
+        return <LocationMarker lat={ev.latitude} lng={ev.longitude} onClick={() => setLocationInfo({ id: ev.id, brightness: ev.brightness })} />
     })
 
     return (
@@ -26,10 +26,10 @@ const Map = ({ eventData, center, zoom }) => {
 
 Map.defaultProps = {
     center: {
-        lat: -33.8996,
-        lng: 151.02536
+        lat: -25.1000,
+        lng: 133.8807
     },
-    zoom: 6
+    zoom: 5
 }
 
 export default Map

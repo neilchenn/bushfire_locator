@@ -1,5 +1,6 @@
-import { Icon } from '@iconify/react'
-import locationIcon from '@iconify/icons-mdi/pine-tree-fire'
+import React from 'react';
+import { Icon } from '@iconify/react';
+import locationIcon from '@iconify/icons-mdi/pine-tree-fire';
 
 const LocationMarker = ({ lat, lng, onClick }) => {
     return (

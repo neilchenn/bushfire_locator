@@ -1,9 +1,9 @@
-  
-import { useState, useEffect } from 'react'
-import Map from './components/Map'
-import Loader from './components/Loader'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import NavbarComp from './components/NavbarComp'
+import React from 'react';
+import { useState, useEffect } from 'react';
+import Map from './components/Map';
+import Loader from './components/Loader';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import NavbarComp from './components/NavbarComp';
 
 
 
@@ -20,6 +20,12 @@ function App() {
       setEventData(result)
       setLoading(false)
     }
+
+/*
+  useEffect(() => {
+    window.localStorage.setItem("keepData"), 
+  })
+*/
 
     fetchEvents()
   }, [])

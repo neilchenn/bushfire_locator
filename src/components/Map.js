@@ -5,10 +5,25 @@ import LocationInfoBox from './LocationInfoBox';
 
 const Map = ({ eventData, center, zoom }) => {
     const [locationInfo, setLocationInfo] = useState(null)
+    const [showInfoBox, setShowInfoBox] = useState(false)
 
+   
     const markers = eventData.map((ev) => {
-        return <LocationMarker lat={ev.latitude} lng={ev.longitude} onClick={() => setLocationInfo({ id: ev.id, brightness: ev.brightness })} />
+        return <LocationMarker lat={ev.latitude} lng={ev.longitude} onClick={() => {
+                setLocationInfo({ 
+                    id: ev.id, 
+                    brightness: ev.brightness, 
+                    lat: ev.latitude, 
+                    lon: ev.longitude  
+                })
+                setShowInfoBox(true)
+            }
+        }  />
     })
+
+    const displayInfoBox = () => {
+        return showInfoBox && locationInfo ? <LocationInfoBox setShowInfoBox={setShowInfoBox} info={locationInfo}/> : null
+    }
 
     return (
         <div className="map">
@@ -19,7 +34,7 @@ const Map = ({ eventData, center, zoom }) => {
             >
                 {markers}
             </GoogleMapReact>
-            {locationInfo && <LocationInfoBox info={locationInfo} />}
+            {displayInfoBox()}
         </div>
     )
 }
